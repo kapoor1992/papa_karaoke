@@ -11,7 +11,7 @@ def _create_instrumental_video(yt_url: str) -> None:
     os.system(f'yt-dlp -f bestaudio --extract-audio --audio-format wav --audio-quality 0 -o "{_TEMP_DIR}{sep}yt_audio.wav" {yt_url}')
     os.system(f'yt-dlp -f bestvideo -o "{_TEMP_DIR}{sep}yt_video.webm" {yt_url}')
     
-    os.system(f'demucs "{_TEMP_DIR}{sep}yt_audio.wav" -o "{_TEMP_DIR}{sep}"')
+    os.system(f'demucs "{_TEMP_DIR}{sep}yt_audio.wav" -o "{_TEMP_DIR}"')
 
     os.system(f'ffmpeg -i "{_TEMP_DIR}{sep}htdemucs{sep}yt_audio{sep}bass.wav" -i "{_TEMP_DIR}{sep}htdemucs{sep}yt_audio{sep}drums.wav" -i "{_TEMP_DIR}{sep}htdemucs{sep}yt_audio{sep}other.wav" -filter_complex [0:a:0][1:a:0]amix=inputs=3:duration=longest[aout] -map [aout] "{_TEMP_DIR}{sep}instrumental.wav"')
 
