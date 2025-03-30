@@ -50,4 +50,3 @@ dependencies:
       - treetable==0.2.5
       - typing-extensions==4.13.0
       - yt-dlp==2025.3.27
-prefix: C:\Users\kapoo\anaconda3\envs\papa_env_win
